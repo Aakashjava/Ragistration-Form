@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User List</title>
+      <style>
+        body {
+            background-color: deepskyblue; /* Set your desired background color */
+        }
+        /* You can also style the form container */
+        .form-container {
+            background-color: darkgreen;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <h1>User List</h1>
+    <div form-container>
+    <table>
+        <tr>
+            <th>Registration Number</th>
+            <th>Name</th>
+            <th>Designation</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Action</th>
+        </tr>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.registrationNumber}"></td>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.designation}"></td>
+            <td th:text="${user.phoneNumber}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.address}"></td>
+            <td>
+                <a th:href="@{'/edit/' + ${user.id}}">Edit</a>
+                <a th:href="@{'/delete/' + ${user.id}}" onclick="return confirm('Are you sure?')">Delete</a>
+            </td>
+        </tr>
+    </table>
+    <a th:href="@{/register}">Register New User</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Signup</title>
+    <style>
+        /* Add your custom CSS for styling the signup form here */
+           body {
+            background-color: deepskyblue; /* Set your desired background color */
+        }
+        /* You can also style the form container */
+        .form-container {
+            background-color: skyblue;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <h1>User Signup</h1>
+    <form th:action="@{/signup}" method="post">
+        <label for="newUsername">Username:</label>
+        <input type="text" id="newUsername" name="newUsername" required/><br/>
+
+        <label for="newPassword">Password:</label>
+        <input type="password" id="newPassword" name="newPassword" required/><br/>
+
+        <!-- Add more signup fields if needed -->
+
+        <input type="submit" value="Sign Up"/>
+    </form>
+    <a th:href="@{/login}">Login</a>
+</body>
+</html>
